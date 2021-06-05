@@ -1,0 +1,77 @@
+##RUTAS DEL CONTROLADOR DE USUARIO
+registerUser: #Ruta de registro de usuarios
+  path: /new-user
+  controller: App\Controller\UserController::register
+  methods: [POST]
+
+loginUser: #Ruta de inicio de sesión de usuarios
+  path: /login-user
+  controller: App\Controller\UserController::login
+  methods: [POST]
+
+editUser: #Ruta de modificación de usuarios
+  path: /edit-user
+  controller: App\Controller\UserController::editUserData
+  methods: [PUT]
+
+obtenerUsuario: #Ruta para obtener los datos de un podcast
+  path: /user/ver/{id}
+  controller: App\Controller\UserController::getUserData
+  methods: [GET]
+
+uploadImagePodcast: #Ruta para subir archivos de un podcast
+  path: /user/upload
+  controller: App\Controller\UserController::uploadUserImg
+  methods: [POST]
+
+##RUTAS DEL CONTROLADOR DE PODCASTS
+createPodcast: #Ruta para guardar un nuevo podcast en la base de datos
+  path: /podcast/new
+  controller: App\Controller\PodcastController::createPodcast
+  methods: [POST]
+
+uploadFilesPodcast: #Ruta para subir archivos de un podcast
+  path: /podcast/upload
+  controller: App\Controller\PodcastController::uploadFile
+  methods: [POST]
+
+modPodcast: #Ruta para modificar un podcast 
+  path: /podcast/edit
+  controller: App\Controller\PodcastController::editPodcast
+  methods: [PUT]
+
+obtenerPodcast: #Ruta para obtener los datos de un podcast
+  path: /podcast/ver/{id}
+  controller: App\Controller\PodcastController::getPodcast
+  methods: [GET]
+
+delPodcast: #Ruta para eliminar un podcast 
+  path: /podcast/remove/{id}
+  controller: App\Controller\PodcastController::removePodcast
+  methods: [DELETE]
+
+listarPodcast: #Ruta para obtener todos los podcast de la BD y listarlos en una paginación
+  path: /podcast/list
+  controller: App\Controller\PodcastController::listPodcast
+  methods: [GET]
+
+listarPodcastUsuario: #Ruta para obtener todos los podcast de un usuario y listarlos en una paginación
+  path: /podcast/list/{id}/{page}
+  controller: App\Controller\PodcastController::listUserPodcast
+  methods: [GET]
+
+#METODOS PARA OBTENER DEL SERVIDOR LOS ARCHIVOS DE IMAGEN Y AUDIO
+getImagen:
+  path: /podcast/image/{filename}
+  controller: App\Controller\PodcastController::getImg
+  methods: [GET]
+
+getAudio:
+  path: /podcast/audio/{filename}
+  controller: App\Controller\PodcastController::getAudio
+  methods: [GET]
+
+getUserImagen:
+  path: /user/image/{filename}
+  controller: App\Controller\UserController::getImgUser
+  methods: [GET]
